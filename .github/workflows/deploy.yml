@@ -30,7 +30,7 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
-        source: "out/"
+        source: "out/*"
         target: "~/MyApiGithubActions/out"
 
     - name: Restart API on EC2
@@ -42,5 +42,15 @@ jobs:
         script: |
           # Kill the running app process if any
           pkill -f "dotnet MyApiGithubActions.dll" || true
+          # Navigate to the deployment directory
           cd ~/MyApiGithubActions/out
-          nohup dotnet MyApiGithubActions.dll --urls "http://*:5000" > myapi.log 2>&1 &
+          # Debug: List files to verify DLL presence
+          ls -al
+          # Start the application if the DLL exists
+          if [ -f "MyApiGithubActions.dll" ]; then
+            nohup dotnet MyApiGithubActions.dll --urls "http://*:5000" > myapi.log 2>&1 &
+            echo "Application started successfully."
+          else
+            echo "Error: MyApiGithubActions.dll not found in ~/MyApiGithubActions/out"
+            exit 1
+          fi
