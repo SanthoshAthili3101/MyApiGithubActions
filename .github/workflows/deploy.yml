@@ -31,8 +31,7 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         source: "out/*"
-        target: "~/MyApiGithubActions/out"
-        strip_components: 1  # Flattens by stripping the 'out' folder level to avoid nesting
+        target: "~/MyApiGithubActions"
 
     - name: Restart API on EC2
       uses: appleboy/ssh-action@v1.0.0
@@ -41,25 +40,18 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
-          # Kill any running app process
           pkill -f "dotnet MyApiGithubActions.dll" || true
-          # Navigate to deployment directory
-          cd ~/MyApiGithubActions/out
-          # Debug: List files to confirm
+          cd ~/MyApiGithubActions
           ls -al
-          # Ensure DLL exists and is executable
           if [ -f "MyApiGithubActions.dll" ]; then
-            chmod +x MyApiGithubActions.dll
-            # Start the app in background with logging
             nohup dotnet MyApiGithubActions.dll --urls "http://*:5000" > myapi.log 2>&1 &
-            sleep 2  # Wait briefly for startup
-            # Verify if app is running
+            sleep 2
             if curl -s http://localhost:5000/swagger > /dev/null; then
-              echo "Application started successfully and is responding on port 5000."
+              echo "Application started successfully and Swagger reachable."
             else
-              echo "Warning: App started but not responding on port 5000 - check myapi.log for errors."
+              echo "Warning: App started but Swagger not available. Check myapi.log."
             fi
           else
-            echo "Error: MyApiGithubActions.dll not found in ~/MyApiGithubActions/out"
+            echo "Error: MyApiGithubActions.dll not found!"
             exit 1
           fi
