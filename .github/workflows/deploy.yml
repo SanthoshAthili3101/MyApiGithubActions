@@ -21,8 +21,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
 
-    - name: Build
-      run: dotnet publish -c Release -o out
+    - name: Build and publish
+      run: dotnet publish MyApiGithubActions.csproj -c Release -o out
 
     - name: Copy files via SSH
       uses: appleboy/scp-action@v0.1.7

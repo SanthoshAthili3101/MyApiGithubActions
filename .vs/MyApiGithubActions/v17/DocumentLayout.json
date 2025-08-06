@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Docker_Practise\\MyApiGithubActions\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|d:\\docker_practise\\myapigithubactions\\.github\\workflows\\deploy.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|solutionrelative:.github\\workflows\\deploy.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|d:\\docker_practise\\myapigithubactions\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|d:\\docker_practise\\myapigithubactions\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|d:\\docker_practise\\myapigithubactions\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|solutionrelative:controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|d:\\docker_practise\\myapigithubactions\\.github\\workflows\\deploy.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{B550E077-98CA-4CEE-ACD0-954A657E31B0}|MyApiGithubActions.csproj|solutionrelative:.github\\workflows\\deploy.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +38,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Docker_Practise\\MyApiGithubActions\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Docker_Practise\\MyApiGithubActions\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T06:36:19.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": ".gitignore",
               "DocumentMoniker": "D:\\Docker_Practise\\MyApiGithubActions\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -47,7 +64,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ValuesController.cs",
               "DocumentMoniker": "D:\\Docker_Practise\\MyApiGithubActions\\Controllers\\ValuesController.cs",
               "RelativeDocumentMoniker": "Controllers\\ValuesController.cs",
@@ -60,13 +77,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "deploy.yml",
               "DocumentMoniker": "D:\\Docker_Practise\\MyApiGithubActions\\.github\\workflows\\deploy.yml",
               "RelativeDocumentMoniker": ".github\\workflows\\deploy.yml",
               "ToolTip": "D:\\Docker_Practise\\MyApiGithubActions\\.github\\workflows\\deploy.yml",
               "RelativeToolTip": ".github\\workflows\\deploy.yml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
               "WhenOpened": "2025-08-06T06:20:19.92Z",
               "EditorCaption": ""
