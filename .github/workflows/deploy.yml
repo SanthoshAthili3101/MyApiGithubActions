@@ -22,7 +22,17 @@ jobs:
       run: dotnet restore
 
     - name: Build and publish
-      run: dotnet publish MyApiGithubActions.csproj -c Release -o out
+      run: dotnet publish MyApiGithubActions.csproj -c Release -o ./publish
+
+    - name: Verify published output
+      run: |
+        ls -al ./publish
+        if [ -f "./publish/MyApiGithubActions.dll" ]; then
+          echo "DLL found in publish folder."
+        else
+          echo "Error: MyApiGithubActions.dll not found in publish folder."
+          exit 1
+        fi
 
     - name: Copy published files to EC2
       uses: appleboy/scp-action@v0.1.7
@@ -30,7 +40,7 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
-        source: "out/*"
+        source: "./publish/*"
         target: "~/MyApiGithubActions"
 
     - name: Restart API on EC2
@@ -40,18 +50,26 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
+          # Kill any running app process
           pkill -f "dotnet MyApiGithubActions.dll" || true
+          # Navigate to deployment directory
           cd ~/MyApiGithubActions
+          # Debug: List files to confirm presence
           ls -al
+          # Check if DLL exists
           if [ -f "MyApiGithubActions.dll" ]; then
+            chmod +x MyApiGithubActions.dll
+            # Start the app in background with logging
             nohup dotnet MyApiGithubActions.dll --urls "http://*:5000" > myapi.log 2>&1 &
-            sleep 2
+            sleep 3
+            # Verify if app is running
             if curl -s http://localhost:5000/swagger > /dev/null; then
-              echo "Application started successfully and Swagger reachable."
+              echo "Application started successfully and Swagger is reachable."
             else
-              echo "Warning: App started but Swagger not available. Check myapi.log."
+              echo "Warning: App started but Swagger not responding on port 5000. Check myapi.log for errors."
+              tail -n 20 myapi.log
             fi
           else
-            echo "Error: MyApiGithubActions.dll not found!"
+            echo "Error: MyApiGithubActions.dll not found in ~/MyApiGithubActions"
             exit 1
           fi
