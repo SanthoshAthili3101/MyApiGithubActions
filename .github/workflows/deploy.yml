@@ -24,7 +24,7 @@ jobs:
     - name: Build and publish
       run: dotnet publish MyApiGithubActions.csproj -c Release -o out
 
-    - name: Copy published files to EC2 (to ~/MyApiGithubActions/out)
+    - name: Copy published files to EC2
       uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.EC2_HOST }}
@@ -40,7 +40,7 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
-          # Kill any running instance (if present)
+          # Kill the running app process if any
           pkill -f "dotnet MyApiGithubActions.dll" || true
           cd ~/MyApiGithubActions/out
           nohup dotnet MyApiGithubActions.dll --urls "http://*:5000" > myapi.log 2>&1 &
