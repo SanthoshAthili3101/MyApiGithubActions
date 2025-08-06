@@ -1,0 +1,102 @@
+﻿# Visual Studio
+.vs/
+*.suo
+*.user
+*.userprefs
+*.ncb
+*.aps
+*.pch
+*.ipch
+*.obj
+*.pdb
+*.ilk
+*.metagen
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.log
+*.bak
+*.old
+*.pyc
+*.pyo
+*.bin
+*.obj
+*.cache
+*.com
+*.dll
+*.exe
+*.exp
+*.lib
+*.ncb
+*.opendb
+*.pdb
+*.res
+*.sbr
+*.sdf
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.user
+*.vshost.exe
+*.vshost.exe.config
+*.vshost.log
+*.vspscc
+*.vsct
+*.webinfo
+*.xml
+*.xps
+*.zip
+*.rar
+*.7z
+*.gz
+*.tar
+*.iso
+*.dmg
+*.vmdk
+*.vhd
+*.vhdx
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Packages
+packages/
+*.nupkg
+
+# Resharper
+*.DotSettings
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Project files
+*.csproj.user
+*.resharper
+*.dotsettings.user
+
+# Local configuration files
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+
+# Test results
+TestResults/
+
+# Log files
+*.log
+
+# Npm
+node_modules/
+npm-debug.log*
+
+# Mac
+.DS_Store
+
+# Linux
+Thumbs.db
